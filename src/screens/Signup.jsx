@@ -21,18 +21,12 @@ const Signup = () => {
             .then(async (response) => {
                 // Signed up 
                 const uid = response.user.uid
-                const userData = {
-                    name, email, uid
-                }
+                const userData = {name, email, uid}
                 localStorage.setItem("userid" , uid)
                 await setDoc(doc(db, "users", uid), userData)
-                Swal.fire({
-                    title: 'SignUp Completed!',
-                    text: 'Do you want to continue',
-                    icon: 'success',
-                    confirmButtonText: 'Okay!'
-                })
+                Swal.fire('SignUp Completed!')
                 Navigate('/login')
+                setisLoading(false)
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -103,7 +97,7 @@ const Signup = () => {
                     </div>
                 </form>
                 <p className="text-sm text-center text-gray-600">
-                    Already have an Account ?<a href="Login" className="text-blue-500 font-semibold hover:underline">Log In</a>
+                    Already have an Account ?<a href="./Login" className="text-blue-500 font-semibold hover:underline">Log In</a>
                 </p>
             </div>
         </div>

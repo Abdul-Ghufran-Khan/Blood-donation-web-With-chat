@@ -12,7 +12,7 @@ const Loading = () => {
   const checkUser = async () => {
     const UserId = await localStorage.getItem('UserId')
     setTimeout(() => {
-      if (UserId) {
+      if (UserId != null) {
         Navigate("/home")
       } else {
         Navigate("/login")

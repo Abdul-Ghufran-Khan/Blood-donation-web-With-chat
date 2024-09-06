@@ -20,12 +20,9 @@ const Login = () => {
             // Signed up 
             const uid = response.user.uid
             localStorage.setItem("userid" , uid)
-            Swal.fire({
-                title: 'SignUp Completed!',
-                icon: 'success',
-                confirmButtonText: 'Okay!'
-            })
+            Swal.fire('Login Completed!')
             Navigate('/home')
+            setisLoading(false)
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -87,7 +84,7 @@ const Login = () => {
           <a href="Login" className="text-blue-500 font-semibold hover:underline">Forget Password?</a>
         </p>
         <p className="text-sm text-center text-gray-600">
-          Don't have an account? <a href="Signup" className="text-blue-500 font-semibold hover:underline">Sign up</a>
+          Don't have an account? <a href="./Signup" className="text-blue-500 font-semibold hover:underline">Sign up</a>
         </p>
       </div>
     </div>
