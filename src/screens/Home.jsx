@@ -1,8 +1,11 @@
 import { collection ,getDocs } from 'firebase/firestore';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { db } from '../Database/firebase.config';
 
 export default function Home() {
+    const [users , setUsers] = useState([])
+    console.log("🚀 ~ Home ~ users:", users)
+    
 
     useEffect(() => {
         getusers()
@@ -13,13 +16,15 @@ export default function Home() {
       const dbsnap = await getDocs(collection(db , "users"))
       dbsnap.forEach((item) => {
         list.push(item.data())
-      })
+    })
+    setUsers(list)
         console.log("🚀 ~ dbsnap.forEach ~ list:", list)
     }
 
+
     return (
         <div>
-            <h1>Home</h1>
+           <div className='bg-orange-500'></div>
         </div>
     )
 }
