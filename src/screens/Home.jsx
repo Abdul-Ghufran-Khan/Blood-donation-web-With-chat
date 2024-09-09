@@ -31,9 +31,9 @@ export default function Home() {
            {/* display users list */}
            {
             users.map((item) => (
-                <div key={item.id} className='w-11/12 shadow-gay-500 shadow-md rounded-lg mx-auto my-4 py-5 px-10 bg-stone-9    00  text-orange-400'>
+                <div key={item.id} className='w-full shadow-stone-800 shadow-md rounded-lg mx-auto my-4 py-5 px-10 bg-stone-900    00  text-orange-400'>
                     <h1 className='text-xl font-bold'>{item.name}</h1>
-                    <p className='text-sm'>{item.email}</p>
+                    <p className='text-md text-orange-800'>{item.email}</p>
                 </div>
             ))
            }
