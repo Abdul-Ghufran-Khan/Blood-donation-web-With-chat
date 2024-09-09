@@ -25,7 +25,7 @@ const Signup = () => {
                 localStorage.setItem("userid" , uid)
                 await setDoc(doc(db, "users", uid), userData)
                 Swal.fire('SignUp Completed!')
-                Navigate('/login')
+                Navigate('/home')
                 setisLoading(false)
             })
             .catch((error) => {

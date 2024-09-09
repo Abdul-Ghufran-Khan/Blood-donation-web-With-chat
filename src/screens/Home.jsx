@@ -23,15 +23,15 @@ export default function Home() {
 
 
     return (
-        <div className='relative min-h-screen bg-stone-800'>
-           <div className='bg-stone-900 w-full p-6 fixed top-0 left-0 right-0'>
+        <div className='min-h-screen bg-stone-800'>
+           <div className='bg-stone-900 w-full p-6'>
               <h1 className='text-2xl font-bold text-orange-500'>Users List</h1>
            </div>
 
            {/* display users list */}
            {
             users.map((item) => (
-                <div key={item.id} className='w-full shadow-stone-800 shadow-md rounded-lg mx-auto my-4 py-5 px-10 bg-stone-900    00  text-orange-400'>
+                <div key={item.id} className='w-full shadow-stone-800 shadow-md rounded-lg mx-auto my-4 py-7 px-10 bg-stone-900    00  text-orange-400'>
                     <h1 className='text-xl font-bold'>{item.name}</h1>
                     <p className='text-md text-orange-800'>{item.email}</p>
                 </div>
