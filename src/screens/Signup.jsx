@@ -97,7 +97,7 @@ const Signup = () => {
                     </div>
                 </form>
                 <p className="text-sm text-center text-gray-600">
-                    Already have an Account ?<a onClick={()=> Navigate("/login")} className="text-blue-500 font-semibold hover:underline">Log In</a>
+                    Already have an Account ?<a onClick={()=> Navigate("/login")} className="text-blue-500 cursor-pointer font-semibold hover:underline">Log In</a>
                 </p>
             </div>
         </div>
