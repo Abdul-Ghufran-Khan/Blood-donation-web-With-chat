@@ -32,7 +32,7 @@ export default function Home() {
 
             {
                 users.map((item) => (
-                    <div key={item.uid} onClick={() => Navigate("/chat", item)} className='cursor-pointer hover:bg-stone-950 w-11/12 border border-black shadow-stone-900 shadow-md rounded-lg mx-auto my-4 py-7 px-10 bg-stone-900  text-orange-400 flex justify-between'>
+                    <div key={item.uid} onClick={() => Navigate("/chat", {state: item})} className='cursor-pointer hover:bg-stone-950 w-11/12 border border-black shadow-stone-900 shadow-md rounded-lg mx-auto my-4 py-7 px-10 bg-stone-900  text-orange-400 flex justify-between'>
                         <div className='flex items-center'>
                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mpEAFXv-iIa50q5rA2L6nnHGy_akXDFyQQ&s" className='w-16 h-16 rounded-full border-2 mr-4 border-black'/>
                             <div>
