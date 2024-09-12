@@ -25,6 +25,7 @@ export default function Chat() {
             [state.uid] : true,
             createdAt: Date.now()
         }
+        setMessages('')
     }
 
 
