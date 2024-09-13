@@ -10,7 +10,7 @@ function Blood() {
             {/* Header */}
             <header className="bg-red-700 text-white">
                 <div className="container mx-auto px-4 py-6 flex justify-between item-center">
-                    <h1 className="text-3xl font-bold">BloodDonation</h1>
+                    <h1 className="text-3xl font-bold"> SMIT BloodDonation</h1>
                     <nav>
                         <ul className="flex space-x-4 items-center">
                             <li>
