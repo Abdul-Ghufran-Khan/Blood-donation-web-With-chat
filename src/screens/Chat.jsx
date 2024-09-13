@@ -1,31 +1,36 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import { db } from '../Database/firebase.config';
-import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { addDoc, collection, query, where, onSnapshot } from "firebase/firestore";
 
 export default function Chat() {
     const Navigate = useNavigate()
     const { state } = useLocation()
-    const [messages, setMessages] = useState([])
-    const [Chatlist, setChatlist] = useState([])
+    const [message, setMessage] = useState([])
+    const [Chatlist, setchatlist] = useState([])
 
 
     useEffect(() => {
-        getMessages()
+            const q = query(collection(db, "chat"), where(state.uid, "==", true), where(state.Myuid, "==", true));
+            const unsubscribe = onSnapshot(q, (docSnap) => {
+                const list = [];
+                docSnap.forEach((doc) => {
+                    list.push(doc.data());
+                });
+                setchatlist(list);
+                console.log(Chatlist); 
+            });
+            return  () => unsubscribe();
     }, [])
 
-    const getMessages = async () => {
-    }
-
     const sendMsg = async () => {
-        let Myuid = await localStorage.getItem('userid')
-        addDoc(collection(db, 'messages')), {
-            message : messages,
-            [Myuid] : true,
-            [state.uid] : true,
+        addDoc(collection(db, "chat"), {
+            message,
+            [state.Myuid]: true,
+            [state.uid]: true,
             createdAt: Date.now()
-        }
-        setMessages('')
+        })
+        setMessage('')
     }
 
 
@@ -38,11 +43,17 @@ export default function Chat() {
             </div>
 
             <div className='bg-stone-950 h-[80vh]'>
-
+               {Chatlist.map((item , index) => (
+                 <div key={index} className='cursor-pointer hover:bg-stone-950 w-11/ border border-black shadow-stone-900 shadow-md rounded-lg mx-auto py-7 px-10 bg-stone-900  text-orange-400 flex justify-between'>
+                 <div className='flex items-center'>
+                    <h1 className='text-lg text- font-bold'>{item.message}</h1>
+                 </div>
+             </div>
+               ))}
             </div>
 
             <div className='flex items-center justify-center pt-1 gap-2'>
-                <input value={messages} onChange={(e) => setMessages(e.target.value)} placeholder='Message' className='text-white w-10/12 h-10 bg-stone-900 rounded-lg px-6 py-2 text-xl outline-none'/>
+                <input value={message} onChange={(e) => setMessage(e.target.value)} placeholder='Message' className='text-white w-10/12 h-10 bg-stone-900 rounded-lg px-6 py-2 text-xl outline-none' />
                 <button onClick={sendMsg} className='text-orange-600 text-xl w-20 rounded-md h-10 bg-stone-950'>Send</button>
             </div>
         </div>
