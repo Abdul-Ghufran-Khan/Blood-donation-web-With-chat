@@ -26,21 +26,21 @@ export default function Home() {
 
 
     return (
-        <div className='min-h-screen bg-stone-800'>
-            <div className='bg-stone-900 w-full p-6 mb-16'>
-                <h1 className='text-2xl font-bold text-orange-500'>Users List</h1>
+        <div className='min-h-screen bg-red-500'>
+            <div className='bg-red-700 w-full p-6 mb-16'>
+                <h1 className='text-2xl font-bold text-black'>Blood Donar List</h1>
             </div>
 
             {/* display users list */}
 
             {
                 users.map((item) => (
-                    <div key={item.uid} onClick={() => Navigate("/chat", {state: {...item , Myuid}})} className='cursor-pointer hover:bg-stone-950 w-11/12 border border-black shadow-stone-900 shadow-md rounded-lg mx-auto my-4 py-7 px-10 bg-stone-900  text-orange-400 flex justify-between'>
+                    <div key={item.uid} onClick={() => Navigate("/chat", {state: {...item , Myuid}})} className='cursor-pointer hover:bg-red-700 w-11/12 border border-black shadow-stone-900 shadow-md rounded-lg mx-auto my-4 py-7 px-10 bg-red-600 text-black flex justify-between'>
                         <div className='flex items-center'>
                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mpEAFXv-iIa50q5rA2L6nnHGy_akXDFyQQ&s" className='w-16 h-16 rounded-full border-2 mr-4 border-black'/>
                             <div>
                                 <h1 className=' uppercase text-xl font-bold'>{item.name}</h1>
-                                <p className='text-md text-orange-800'>{item.email}</p>
+                                <p className='text-md text-black'>{item.email}</p>
                             </div>
                         </div>
                         <button>Message</button>

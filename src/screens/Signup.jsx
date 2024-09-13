@@ -25,7 +25,7 @@ const Signup = () => {
                 localStorage.setItem("userid" , uid)
                 await setDoc(doc(db, "users", uid), userData)
                 Swal.fire('SignUp Completed!')
-                Navigate('/home')
+                Navigate('/blood')
                 setisLoading(false)
             })
             .catch((error) => {
@@ -43,12 +43,12 @@ const Signup = () => {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-2xl rounded-lg scale-105">
-                <h2 className="text-2xl font-bold text-center text-gray-800">Signup</h2>
+        <div className="flex items-center justify-center min-h-screen bg-red-700">
+            <div className="w-full max-w-md p-8 space-y-6 bg-red-900 shadow-2xl rounded-lg scale-105">
+                <h2 className="text-2xl font-bold text-center text-white">Signup</h2>
                 <form className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label className="block text-sm font-medium text-white">
                             Fullname
                         </label>
                         <input
@@ -60,7 +60,7 @@ const Signup = () => {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label className="block text-sm font-medium text-white">
                             Email
                         </label>
                         <input
@@ -72,7 +72,7 @@ const Signup = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="password" className="block text-sm font-medium text-white">
                             Password
                         </label>
                         <input
@@ -90,13 +90,13 @@ const Signup = () => {
                             </div> : <button
                                 type="submit"
                                 onClick={handleSignup}
-                                className="w-full px-4 py-2 font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-lg"
+                                className="w-full px-4 py-2 font-semibold text-white bg-red-500 hover:bg-red-700 rounded-lg"
                             >
                                 Sign Up
                             </button>}
                     </div>
                 </form>
-                <p className="text-sm text-center text-gray-600">
+                <p className="text-sm text-center text-white">
                     Already have an Account ?<a onClick={()=> Navigate("/login")} className="text-blue-500 cursor-pointer font-semibold hover:underline">Log In</a>
                 </p>
             </div>

@@ -21,7 +21,7 @@ const Login = () => {
             const uid = response.user.uid
             localStorage.setItem("userid" , uid)
             Swal.fire('Login Completed!')
-            Navigate('/home')
+            Navigate('/blood')
             setisLoading(false)
         })
         .catch((error) => {
@@ -39,12 +39,12 @@ const Login = () => {
 }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-2xl rounded-lg scale-105">
-        <h2 className="text-2xl font-bold text-center text-gray-800">Login to Your Account</h2>
+    <div className="flex items-center justify-center min-h-screen bg-red-700">
+      <div className="w-full max-w-md p-8 space-y-6 bg-red-900 shadow-2xl rounded-lg scale-105">
+        <h2 className="text-2xl font-bold text-center text-white">Login to Your Account</h2>
         <form className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium text-white">
               Email address
             </label>
             <input
@@ -56,7 +56,7 @@ const Login = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-white">
               Password
             </label>
             <input
@@ -74,7 +74,7 @@ const Login = () => {
               </div> : <button
                 type="submit"
                 onClick={handleLogin}
-                className="w-full px-4 py-2 font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-lg"
+                className="w-full px-4 py-2 font-semibold text-white bg-red-500 hover:bg-red-700 rounded-lg"
               >
                 Sign Up
               </button>}
@@ -83,7 +83,7 @@ const Login = () => {
         <p className="text-sm text-center text-gray-600">
           <a href="Login" className="text-blue-500 font-semibold hover:underline">Forget Password?</a>
         </p>
-        <p className="text-sm text-center text-gray-600">
+        <p className="text-sm text-center text-white">
           Don't have an account?<a onClick={()=> Navigate("/signup")} className="text-blue-500 cursor-pointer font-semibold hover:underline">Sign up</a>
         </p>
       </div>
